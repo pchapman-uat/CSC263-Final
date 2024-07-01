@@ -8,12 +8,12 @@ import rpg.java.characters.BaseCharacter;
 import rpg.java.characters.BaseEnemy;
 import rpg.java.swing.Panels.CharacterPannel;
 
-public class MainFrame extends JFrame {
+public class GameFrame extends JFrame {
     private CharacterPannel enemy;
     private CharacterPannel player;
     public static final int WIDTH = 500;
     public static final int HEIGHT = 500;
-    public MainFrame(){
+    public GameFrame(){
         this.setSize(WIDTH,HEIGHT);
         this.setTitle("RPG | Preston C");
         this.setLayout(new FlowLayout());
