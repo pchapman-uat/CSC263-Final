@@ -17,7 +17,7 @@ public class CharacterPannel extends JPanel {
     }
     public void updatePanel(){
         System.out.println("Updating Pannel");
-        this.health.setText(String.valueOf(character.health));
+        this.health.setText(character.getHealthRatio());
         this.name.setText(character.name);
         this.setBackground(character.color);
     }

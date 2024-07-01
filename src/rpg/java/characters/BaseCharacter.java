@@ -20,4 +20,13 @@ public class BaseCharacter {
         this.health = health;
         this.color = color;
     }
+    public String getHealth(){
+        return String.valueOf(this.health);
+    }
+    public String getMaxHealth(){
+        return String.valueOf(this.maxHealth);
+    }
+    public String getHealthRatio(){
+        return this.getHealth() + "/" + this.getMaxHealth();
+    }
 }
