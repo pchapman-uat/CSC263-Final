@@ -1,6 +1,6 @@
 package rpg.java;
 
-import rpg.java.Frames.MainFrame;
+import rpg.java.swing.Frames.MainFrame;
 
 public class Main {
     public static void main(String[] args){
