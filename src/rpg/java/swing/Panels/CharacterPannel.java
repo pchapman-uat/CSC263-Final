@@ -1,5 +1,8 @@
 package rpg.java.swing.Panels;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -9,10 +12,15 @@ public class CharacterPannel extends JPanel {
     public BaseCharacter character;
     private JLabel health = new JLabel();
     private JLabel name = new JLabel();
+    private GridBagConstraints c = new GridBagConstraints();
     public CharacterPannel(BaseCharacter character){
         this.character = character;
-        this.add(this.health);
-        this.add(this.name);
+        this.setLayout(new GridBagLayout());
+        
+        this.c.gridy = 0;
+        this.add(this.health, c);
+        this.c.gridy+=1;
+        this.add(this.name,c);
         this.updatePanel();
     }
     public void updatePanel(){
