@@ -16,7 +16,7 @@ public class GamePanel extends JPanel {
         this.setSize(Main.WIDTH, Main.HEIGHT);
         this.setLayout(new FlowLayout());
         this.player = new CharacterPannel(Main.player);
-        this.enemy = new CharacterPannel(new BaseEnemy("Enemy", 10, 10));
+        this.enemy = new CharacterPannel(BaseEnemy.getRandomEnemy());
         this.add(this.player);
         this.add(this.enemy);
         this.setVisible(true);
