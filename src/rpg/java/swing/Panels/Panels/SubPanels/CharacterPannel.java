@@ -1,4 +1,4 @@
-package rpg.java.swing.Panels;
+package rpg.java.swing.Panels.Panels.SubPanels;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
