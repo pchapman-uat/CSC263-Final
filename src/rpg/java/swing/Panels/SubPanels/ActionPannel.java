@@ -1,4 +1,4 @@
-package rpg.java.swing.Panels.Panels.SubPanels;
+package rpg.java.swing.Panels.SubPanels;
 
 import java.awt.FlowLayout;
 
@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import rpg.java.Main;
-import rpg.java.swing.Panels.Panels.GamePanel;
+import rpg.java.swing.Panels.GamePanel;
 
 public class ActionPannel extends JPanel {
     public JButton attack = new JButton("Attack");

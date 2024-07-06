@@ -1,4 +1,4 @@
-package rpg.java.swing.Panels.Panels.SubPanels;
+package rpg.java.swing.Panels.SubPanels;
 
 
 import java.awt.Color;

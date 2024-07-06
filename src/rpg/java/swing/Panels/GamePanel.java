@@ -1,4 +1,4 @@
-package rpg.java.swing.Panels.Panels;
+package rpg.java.swing.Panels;
 
 import java.awt.FlowLayout;
 
@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 
 import rpg.java.Main;
 import rpg.java.characters.BaseEnemy;
-import rpg.java.swing.Panels.Panels.SubPanels.ActionPannel;
-import rpg.java.swing.Panels.Panels.SubPanels.CharacterPannel;
+import rpg.java.swing.Panels.SubPanels.ActionPannel;
+import rpg.java.swing.Panels.SubPanels.CharacterPannel;
 
 public class GamePanel extends JPanel {
     public static CharacterPannel enemy;

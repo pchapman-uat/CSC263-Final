@@ -3,8 +3,8 @@ package rpg.java.swing;
 import javax.swing.JFrame;
 
 import rpg.java.Main;
-import rpg.java.swing.Panels.Panels.GamePanel;
-import rpg.java.swing.Panels.Panels.RegisterPanel;
+import rpg.java.swing.Panels.GamePanel;
+import rpg.java.swing.Panels.RegisterPanel;
 
 public class MainFrame extends JFrame{
     private final RegisterPanel REGISTER_PANEL = new RegisterPanel();
