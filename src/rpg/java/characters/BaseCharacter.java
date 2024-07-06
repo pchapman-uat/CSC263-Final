@@ -8,16 +8,20 @@ public class BaseCharacter {
     public String name;
     public Color color;
 
-    public BaseCharacter(String name, float health, float maxHealth){
+    public int damage;
+
+    public BaseCharacter(String name, float health, float maxHealth, int damage){
         this.name = name;
         this.maxHealth = maxHealth;
         this.health = health;
+        this.damage = damage;
         this.color = Color.WHITE;
     }
-    public BaseCharacter(String name, float health, float maxHealth, Color color){
+    public BaseCharacter(String name, float health, float maxHealth, int damage, Color color){
         this.name = name;
         this.maxHealth = maxHealth;
         this.health = health;
+        this.damage = damage;
         this.color = color;
     }
     public String getHealth(){
@@ -28,5 +32,14 @@ public class BaseCharacter {
     }
     public String getHealthRatio(){
         return this.getHealth() + "/" + this.getMaxHealth();
+    }
+    public void attack(BaseCharacter enemy){
+        enemy.reciveDamage(this.damage);
+    }
+    public void reciveDamage(int ammount){
+        this.health -= ammount;
+        if(this.health <= 0){
+            this.health = 0;
+        }
     }
 }

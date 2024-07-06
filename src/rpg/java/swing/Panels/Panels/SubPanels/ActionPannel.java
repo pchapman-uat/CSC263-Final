@@ -5,6 +5,9 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import rpg.java.Main;
+import rpg.java.swing.Panels.Panels.GamePanel;
+
 public class ActionPannel extends JPanel {
     public JButton attack = new JButton("Attack");
     public JButton defend = new JButton("Defend");
@@ -22,7 +25,9 @@ public class ActionPannel extends JPanel {
     }
 
     private void attack(){
-        System.out.println("Attack");
+        Main.player.attack(Main.enemy);
+        GamePanel.enemy.updatePanel();
+        GamePanel.player.updatePanel();
     }
     private void defend(){
         System.out.println("Defend");

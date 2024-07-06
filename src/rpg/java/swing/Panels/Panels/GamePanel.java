@@ -10,17 +10,18 @@ import rpg.java.swing.Panels.Panels.SubPanels.ActionPannel;
 import rpg.java.swing.Panels.Panels.SubPanels.CharacterPannel;
 
 public class GamePanel extends JPanel {
-    private CharacterPannel enemy;
-    private CharacterPannel player;
+    public static CharacterPannel enemy;
+    public static CharacterPannel player;
 
     private ActionPannel actions = new ActionPannel();
     public GamePanel(){
         this.setSize(Main.WIDTH, Main.HEIGHT);
         this.setLayout(new FlowLayout());
-        this.player = new CharacterPannel(Main.player);
-        this.enemy = new CharacterPannel(BaseEnemy.getRandomEnemy());
-        this.add(this.player);
-        this.add(this.enemy);
+        player = new CharacterPannel(Main.player);
+        Main.enemy = BaseEnemy.getRandomEnemy();
+        enemy = new CharacterPannel(Main.enemy);
+        this.add(player);
+        this.add(enemy);
         this.add(this.actions);
         this.setVisible(true);
     }
