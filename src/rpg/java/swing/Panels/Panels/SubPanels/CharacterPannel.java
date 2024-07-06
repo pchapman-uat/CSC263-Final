@@ -1,5 +1,6 @@
 package rpg.java.swing.Panels.Panels.SubPanels;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -28,5 +29,14 @@ public class CharacterPannel extends JPanel {
         this.health.setText(character.getHealthRatio());
         this.name.setText(character.name);
         this.setBackground(character.color);
+        Color textColor;
+        // Check if color is dark or light
+        if(character.color.getRed() + character.color.getGreen() + character.color.getBlue() > 382){
+            textColor = Color.BLACK;
+        }else{
+            textColor = Color.WHITE;
+        }
+        this.name.setForeground(textColor);
+        this.health.setForeground(textColor);
     }
 }
