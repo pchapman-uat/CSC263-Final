@@ -28,9 +28,12 @@ public class ActionPannel extends JPanel {
         Main.player.attack(Main.enemy);
         GamePanel.enemy.updatePanel();
         GamePanel.player.updatePanel();
+        GamePanel.doTurn();
     }
     private void defend(){
         System.out.println("Defend");
+        Main.player.startDefending();
+        GamePanel.doTurn();
     }
     private void heal(){
         System.out.println("Heal");

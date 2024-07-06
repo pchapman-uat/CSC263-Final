@@ -25,6 +25,6 @@ public class BaseEnemy extends BaseCharacter{
         new BaseEnemy("Ghost", 15, 15, 2, Color.WHITE)
     ));
     public static BaseEnemy getRandomEnemy(){
-        return ENEMIES.get((int)Math.round(Math.random()*ENEMIES.size()));
+        return ENEMIES.get((int)Math.round(Math.random()*(ENEMIES.size()-1)));
     }
 }

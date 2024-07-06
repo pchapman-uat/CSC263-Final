@@ -14,8 +14,8 @@ public class CharacterPannel extends JPanel {
     private JLabel health = new JLabel();
     private JLabel name = new JLabel();
     private GridBagConstraints c = new GridBagConstraints();
-    public CharacterPannel(BaseCharacter character){
-        this.character = character;
+    public CharacterPannel(BaseCharacter _character){
+        character = _character;
         this.setLayout(new GridBagLayout());
         
         this.c.gridy = 0;
@@ -38,5 +38,10 @@ public class CharacterPannel extends JPanel {
         }
         this.name.setForeground(textColor);
         this.health.setForeground(textColor);
+        this.repaint();
+    }
+    public void resetPan(BaseCharacter _character){
+        this.character = _character;
+        this.updatePanel();
     }
 }

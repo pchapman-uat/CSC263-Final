@@ -25,4 +25,16 @@ public class GamePanel extends JPanel {
         this.add(this.actions);
         this.setVisible(true);
     }
+    public static void doTurn(){
+        Main.enemy.attack(Main.player);
+        Main.player.stopDefending();
+        if(Main.player.health <= 0){
+            System.out.println("You died");
+            System.exit(0);
+        }
+        if(Main.enemy.health <= 0){
+            Main.enemy = BaseEnemy.getRandomEnemy();
+            enemy.resetPan(Main.enemy);
+        }
+    }
 }

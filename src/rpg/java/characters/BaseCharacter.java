@@ -10,6 +10,7 @@ public class BaseCharacter {
 
     public int damage;
 
+    public Boolean defending = false;
     public BaseCharacter(String name, float health, float maxHealth, int damage){
         this.name = name;
         this.maxHealth = maxHealth;
@@ -36,10 +37,17 @@ public class BaseCharacter {
     public void attack(BaseCharacter enemy){
         enemy.reciveDamage(this.damage);
     }
-    public void reciveDamage(int ammount){
+    public void reciveDamage(float ammount){
+        if(this.defending) ammount /= 2;
         this.health -= ammount;
         if(this.health <= 0){
             this.health = 0;
         }
+    }
+    public void startDefending(){
+        this.defending = true;
+    }
+    public void stopDefending(){
+        this.defending = false;
     }
 }
