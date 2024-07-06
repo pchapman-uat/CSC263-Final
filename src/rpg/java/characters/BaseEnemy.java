@@ -11,6 +11,9 @@ public class BaseEnemy extends BaseCharacter{
     public BaseEnemy(String name, float health, float maxHealth, int damage, Color color){
         super(name, health, maxHealth, damage, color);
     }
+    public BaseEnemy(BaseEnemy other) {
+        super(other);
+    }
 
     public static final ArrayList<BaseEnemy> ENEMIES = new ArrayList<>(Arrays.asList(
         new BaseEnemy("Goblin", 10, 10, 5, Color.GREEN),
@@ -25,6 +28,6 @@ public class BaseEnemy extends BaseCharacter{
         new BaseEnemy("Ghost", 15, 15, 2, Color.WHITE)
     ));
     public static BaseEnemy getRandomEnemy(){
-        return ENEMIES.get((int)Math.round(Math.random()*(ENEMIES.size()-1)));
+        return new BaseEnemy(ENEMIES.get((int)Math.round(Math.random()*(ENEMIES.size()-1))));
     }
 }

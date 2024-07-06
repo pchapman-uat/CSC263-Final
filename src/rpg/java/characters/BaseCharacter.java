@@ -25,6 +25,13 @@ public class BaseCharacter {
         this.damage = damage;
         this.color = color;
     }
+    public BaseCharacter(BaseCharacter other) {
+        this.name = other.name;
+        this.maxHealth = other.maxHealth;
+        this.health = other.health;
+        this.damage = other.damage;
+        this.color = other.color;
+    }
     public String getHealth(){
         return String.valueOf(this.health);
     }
