@@ -26,6 +26,9 @@ public class BaseCharacter {
         this.color = color;
     }
     public BaseCharacter(BaseCharacter other) {
+        this.resetFrom(other);
+    }
+    public void resetFrom(BaseCharacter other){
         this.name = other.name;
         this.maxHealth = other.maxHealth;
         this.health = other.health;

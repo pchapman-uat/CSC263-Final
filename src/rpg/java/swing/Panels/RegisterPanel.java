@@ -11,9 +11,9 @@ import rpg.java.characters.PlayerCharacter;
 import rpg.java.swing.Panels.SubPanels.ColorPanel;
 
 public class RegisterPanel extends JPanel{
-    public JButton submitButton = new JButton("Submit");
-    public JTextArea nameArea = new JTextArea("Player");
-    public ColorPanel colorPanel = new ColorPanel();
+    public final JButton submitButton = new JButton("Submit");
+    public final JTextArea nameArea = new JTextArea("Player");
+    public final ColorPanel colorPanel = new ColorPanel();
 
     public RegisterPanel(){
         this.setSize(Main.WIDTH, Main.HEIGHT);

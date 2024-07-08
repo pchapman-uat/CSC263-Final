@@ -8,16 +8,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import rpg.java.characters.BaseCharacter;
+import rpg.java.characters.BaseEnemy;
 
 public class CharacterPannel extends JPanel {
-    public BaseCharacter character;
-    private JLabel health = new JLabel();
-    private JLabel name = new JLabel();
-    private GridBagConstraints c = new GridBagConstraints();
+    public final BaseCharacter character;
+    private final JLabel health = new JLabel();
+    private final JLabel name = new JLabel();
+    private final GridBagConstraints c = new GridBagConstraints();
     public CharacterPannel(BaseCharacter _character){
         character = _character;
         this.setLayout(new GridBagLayout());
-        
         this.c.gridy = 0;
         this.add(this.health, c);
         this.c.gridy+=1;
@@ -40,8 +40,8 @@ public class CharacterPannel extends JPanel {
         this.health.setForeground(textColor);
         this.repaint();
     }
-    public void resetPan(BaseCharacter _character){
-        this.character = _character;
+    public void resetPan(BaseEnemy _character){
+        this.character.resetFrom(_character);
         this.updatePanel();
     }
 }

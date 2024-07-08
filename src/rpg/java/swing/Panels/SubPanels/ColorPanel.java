@@ -7,7 +7,7 @@ import javax.swing.JColorChooser;
 import javax.swing.JPanel;
 
 public class ColorPanel extends JPanel {
-    private JColorChooser colorChooser = new JColorChooser();
+    private final JColorChooser colorChooser = new JColorChooser();
 
     public ColorPanel(){
         this.add(this.colorChooser);

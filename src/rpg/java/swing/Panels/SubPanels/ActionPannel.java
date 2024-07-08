@@ -9,9 +9,9 @@ import rpg.java.Main;
 import rpg.java.swing.Panels.GamePanel;
 
 public class ActionPannel extends JPanel {
-    public JButton attack = new JButton("Attack");
-    public JButton defend = new JButton("Defend");
-    public JButton heal = new JButton("Heal");
+    public final JButton attack = new JButton("Attack");
+    public final JButton defend = new JButton("Defend");
+    public final JButton heal = new JButton("Heal");
 
     public ActionPannel(){
         this.setLayout(new FlowLayout());
