@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import rpg.java.Main;
+
 public class BaseEnemy extends BaseCharacter{
     public BaseEnemy(String name, float health, float maxHealth, int damage){
         super(name, health, maxHealth, damage, Color.RED);
@@ -13,6 +15,11 @@ public class BaseEnemy extends BaseCharacter{
     }
     public BaseEnemy(BaseEnemy other) {
         super(other);
+    }
+    @Override
+    public void attack(BaseCharacter enemy){
+        enemy.reciveDamage(this.damage * Main.damageMultiplier);
+        System.out.println(this.damage * Main.damageMultiplier);
     }
 
     public static final ArrayList<BaseEnemy> ENEMIES = new ArrayList<>(Arrays.asList(

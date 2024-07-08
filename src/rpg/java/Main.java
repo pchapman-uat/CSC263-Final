@@ -9,6 +9,7 @@ public class Main {
     public static final int HEIGHT = 500;
     public static PlayerCharacter player;
     public static BaseEnemy enemy;
+    public static float damageMultiplier = 1;
     public static final MainFrame FRAME= new MainFrame();
     public static void main(String[] args){
 

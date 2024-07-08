@@ -32,8 +32,11 @@ public class BaseCharacter {
         this.damage = other.damage;
         this.color = other.color;
     }
+    private float round(float number){
+        return (float)Math.round(number*100)/100;
+    }
     public String getHealth(){
-        return String.valueOf(this.health);
+        return String.valueOf(this.round(this.health));
     }
     public String getMaxHealth(){
         return String.valueOf(this.maxHealth);

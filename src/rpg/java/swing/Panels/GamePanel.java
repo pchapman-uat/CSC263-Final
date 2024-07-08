@@ -35,6 +35,7 @@ public class GamePanel extends JPanel {
         if(Main.enemy.health <= 0){
             Main.enemy = BaseEnemy.getRandomEnemy();
             enemy.resetPan(Main.enemy);
+            Main.damageMultiplier += 0.1;
         }
     }
 }
