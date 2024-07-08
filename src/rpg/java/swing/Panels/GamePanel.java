@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 import rpg.java.Main;
-import rpg.java.characters.BaseCharacter;
 import rpg.java.characters.BaseEnemy;
 import rpg.java.characters.BossEnemy;
 import rpg.java.swing.Panels.SubPanels.ActionPannel;
