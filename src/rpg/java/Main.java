@@ -13,6 +13,7 @@ public class Main {
     public static final MainFrame FRAME= new MainFrame();
     public static int currentWave = 0;
     public static final int bossWaves = 1;
+    public static Difficulty difficulty;
     public static void main(String[] args){
 
     }
