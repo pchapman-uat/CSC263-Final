@@ -60,4 +60,8 @@ public class BaseCharacter {
     public void stopDefending(){
         this.defending = false;
     }
+    public void heal(int ammount){
+        this.health += ammount;
+        if(this.health > this.maxHealth) this.health = this.maxHealth;
+    }
 }

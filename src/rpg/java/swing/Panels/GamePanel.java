@@ -37,5 +37,7 @@ public class GamePanel extends JPanel {
             enemy.resetPan(Main.enemy);
             Main.damageMultiplier += 0.1;
         }
+        GamePanel.enemy.updatePanel();
+        GamePanel.player.updatePanel();
     }
 }
