@@ -11,7 +11,7 @@ import rpg.java.characters.BaseCharacter;
 import rpg.java.characters.BaseEnemy;
 
 public class CharacterPannel extends JPanel {
-    public final BaseCharacter character;
+    public BaseCharacter character;
     private final JLabel health = new JLabel();
     private final JLabel name = new JLabel();
     private final GridBagConstraints c = new GridBagConstraints();

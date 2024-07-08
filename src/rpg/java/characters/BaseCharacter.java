@@ -28,6 +28,9 @@ public class BaseCharacter {
     public BaseCharacter(BaseCharacter other) {
         this.resetFrom(other);
     }
+    public BaseCharacter(){
+        System.out.println("Test");
+    }
     public void resetFrom(BaseCharacter other){
         this.name = other.name;
         this.maxHealth = other.maxHealth;

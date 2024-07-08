@@ -5,7 +5,9 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 import rpg.java.Main;
+import rpg.java.characters.BaseCharacter;
 import rpg.java.characters.BaseEnemy;
+import rpg.java.characters.BossEnemy;
 import rpg.java.swing.Panels.SubPanels.ActionPannel;
 import rpg.java.swing.Panels.SubPanels.CharacterPannel;
 
@@ -18,7 +20,7 @@ public class GamePanel extends JPanel {
         this.setSize(Main.WIDTH, Main.HEIGHT);
         this.setLayout(new FlowLayout());
         player = new CharacterPannel(Main.player);
-        Main.enemy = BaseEnemy.getRandomEnemy();
+        Main.enemy = new BaseEnemy();
         enemy = new CharacterPannel(Main.enemy);
         this.add(player);
         this.add(enemy);
@@ -33,9 +35,19 @@ public class GamePanel extends JPanel {
             System.exit(0);
         }
         if(Main.enemy.health <= 0){
-            Main.enemy = BaseEnemy.getRandomEnemy();
-            enemy.resetPan(Main.enemy);
+            Main.currentWave+=1;
+            if(Main.currentWave % Main.bossWaves == 0){
+                System.out.println("Boss Wave!");
+                Main.enemy = new BossEnemy();
+                enemy.resetPan(Main.enemy);
+                GamePanel.enemy.character = Main.enemy;
+            } else {
+                Main.enemy.resetRandon();
+                enemy.resetPan(Main.enemy);
+            }
+
             Main.damageMultiplier += 0.1;
+            
         }
         GamePanel.enemy.updatePanel();
         GamePanel.player.updatePanel();

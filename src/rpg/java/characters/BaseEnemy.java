@@ -16,6 +16,10 @@ public class BaseEnemy extends BaseCharacter{
     public BaseEnemy(BaseEnemy other) {
         super(other);
     }
+    public BaseEnemy(){
+        super();
+        this.resetRandon();
+    }
     @Override
     public void attack(BaseCharacter enemy){
         enemy.reciveDamage(this.damage * Main.damageMultiplier);
@@ -25,7 +29,6 @@ public class BaseEnemy extends BaseCharacter{
     public static final ArrayList<BaseEnemy> ENEMIES = new ArrayList<>(Arrays.asList(
         new BaseEnemy("Goblin", 10, 10, 5, Color.GREEN),
         new BaseEnemy("Orc", 15, 15,3, Color.RED),
-        new BaseEnemy("Dragon", 50, 50, 10, Color.BLUE),
         new BaseEnemy("Skeleton", 12, 12, 2, Color.LIGHT_GRAY),
         new BaseEnemy("Troll", 20, 20,4, Color.DARK_GRAY),
         new BaseEnemy("Witch", 18, 18,2, Color.MAGENTA),
@@ -34,7 +37,10 @@ public class BaseEnemy extends BaseCharacter{
         new BaseEnemy("Slime", 8, 8,2, Color.YELLOW),
         new BaseEnemy("Ghost", 15, 15, 2, Color.WHITE)
     ));
-    public static BaseEnemy getRandomEnemy(){
-        return new BaseEnemy(ENEMIES.get((int)Math.round(Math.random()*(ENEMIES.size()-1))));
+    public ArrayList<BaseEnemy> getEnemies(){
+        return ENEMIES;
+    }
+    public void resetRandon(){
+        this.resetFrom(this.getEnemies().get((int)Math.round(Math.random()*(this.getEnemies().size()-1))));
     }
 }
