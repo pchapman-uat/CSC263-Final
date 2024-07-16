@@ -20,7 +20,6 @@ public class RegisterPanel extends JPanel{
 
     public RegisterPanel(){
         this.setSize(Main.WIDTH, Main.HEIGHT);
-        this.setVisible(true);
         this.add(this.colorPanel);
         this.nameArea.setSize(100,this.nameArea.getHeight());
         this.add(this.nameArea);
