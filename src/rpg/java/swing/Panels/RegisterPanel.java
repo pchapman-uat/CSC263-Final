@@ -5,10 +5,12 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import rpg.java.Difficulty;
+import rpg.java.Fonts;
 import rpg.java.Main;
 import rpg.java.characters.PlayerCharacter;
 import rpg.java.swing.Panels.SubPanels.ColorPanel;
@@ -18,25 +20,36 @@ public class RegisterPanel extends JPanel{
     public final JTextArea nameArea = new JTextArea("Player");
     public final ColorPanel colorPanel = new ColorPanel();
     public final JComboBox<String> difficulty = new JComboBox<String>();
+
+    // Labels
+    private final JLabel header = new JLabel("Register");
+    private final JLabel playerLabel = new JLabel("Player Name: ");
+
     private final GridBagConstraints c = new GridBagConstraints();
 
     public RegisterPanel(){
         this.setSize(Main.WIDTH, Main.HEIGHT);
+        this.setFonts();
         this.setLayout(new GridBagLayout());
         this.c.gridy = 0;
+        this.add(this.header, this.c);
+        this.c.gridy++;
         this.add(this.colorPanel, this.c);
         this.c.gridy++;
         this.nameArea.setSize(100,this.nameArea.getHeight());
+        this.add(this.playerLabel, this.c);
+        this.c.gridy++;
         this.add(this.nameArea, this.c);
         this.c.gridy++;
         this.submitButton.addActionListener((e -> this.submit()));
         this.add(this.submitButton, this.c);
+        this.c.gridy++;
 
         
         this.difficulty.addItem("Easy");
         this.difficulty.addItem("Normal");
         this.difficulty.addItem("Hard");
-        this.add(this.difficulty);
+        this.add(this.difficulty, c);
 
 
     }
@@ -62,4 +75,8 @@ public class RegisterPanel extends JPanel{
         }
         Main.FRAME.beginGame();
     }
-}
+    private void setFonts(){
+        this.header.setFont(Fonts.HEADER);
+        this.playerLabel.setFont(Fonts.NORMAL);
+    }
+}   
