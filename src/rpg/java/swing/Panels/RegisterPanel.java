@@ -1,5 +1,6 @@
 package rpg.java.swing.Panels;
 
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -32,24 +33,19 @@ public class RegisterPanel extends JPanel{
         this.setFonts();
         this.setLayout(new GridBagLayout());
         this.c.gridy = 0;
-        this.add(this.header, this.c);
-        this.c.gridy++;
-        this.add(this.colorPanel, this.c);
-        this.c.gridy++;
+        this.addGridY(this.header);
+        this.addGridY(this.colorPanel);
         this.nameArea.setSize(100,this.nameArea.getHeight());
-        this.add(this.playerLabel, this.c);
-        this.c.gridy++;
-        this.add(this.nameArea, this.c);
-        this.c.gridy++;
+        this.addGridY(this.playerLabel);
+        this.addGridY(this.nameArea);
         this.submitButton.addActionListener((e -> this.submit()));
-        this.add(this.submitButton, this.c);
-        this.c.gridy++;
+        this.addGridY(this.submitButton);
 
         
         this.difficulty.addItem("Easy");
         this.difficulty.addItem("Normal");
         this.difficulty.addItem("Hard");
-        this.add(this.difficulty, c);
+        this.addGridY(this.difficulty);
 
 
     }
@@ -78,5 +74,9 @@ public class RegisterPanel extends JPanel{
     private void setFonts(){
         this.header.setFont(Fonts.HEADER);
         this.playerLabel.setFont(Fonts.NORMAL);
+    }
+    private void addGridY(Component component){
+        this.add(component, this.c);
+        this.c.gridy++;
     }
 }   
