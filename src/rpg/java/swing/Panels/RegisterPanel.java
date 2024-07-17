@@ -1,6 +1,7 @@
 package rpg.java.swing.Panels;
 
-import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,14 +18,19 @@ public class RegisterPanel extends JPanel{
     public final JTextArea nameArea = new JTextArea("Player");
     public final ColorPanel colorPanel = new ColorPanel();
     public final JComboBox<String> difficulty = new JComboBox<String>();
+    private final GridBagConstraints c = new GridBagConstraints();
 
     public RegisterPanel(){
         this.setSize(Main.WIDTH, Main.HEIGHT);
-        this.add(this.colorPanel);
+        this.setLayout(new GridBagLayout());
+        this.c.gridy = 0;
+        this.add(this.colorPanel, this.c);
+        this.c.gridy++;
         this.nameArea.setSize(100,this.nameArea.getHeight());
-        this.add(this.nameArea);
+        this.add(this.nameArea, this.c);
+        this.c.gridy++;
         this.submitButton.addActionListener((e -> this.submit()));
-        this.add(this.submitButton);
+        this.add(this.submitButton, this.c);
 
         
         this.difficulty.addItem("Easy");
@@ -32,7 +38,6 @@ public class RegisterPanel extends JPanel{
         this.difficulty.addItem("Hard");
         this.add(this.difficulty);
 
-        this.setLayout(new FlowLayout());
 
     }
     public void submit(){
