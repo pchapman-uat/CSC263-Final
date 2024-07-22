@@ -5,6 +5,11 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import java.awt.GridBagLayout;
+import java.awt.RenderingHints;
+import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 
 import rpg.java.Fonts;
@@ -21,6 +26,9 @@ public class AboutPanel extends JPanel{
     public AboutPanel(){
         this.aboutLabel.setFont(Fonts.HEADER);
         this.authorLabel.setFont(Fonts.SUBHEADER);
+        this.aboutLabel.setForeground(Color.WHITE);
+        this.authorLabel.setForeground(Color.WHITE);
+        this.descriptionLabel.setForeground(Color.WHITE);
 
         this.setSize(Main.WIDTH, Main.HEIGHT);
         this.setLayout(new GridBagLayout());
@@ -32,5 +40,16 @@ public class AboutPanel extends JPanel{
         this.add(this.descriptionLabel, c);
         this.c.gridy+=1;
         this.add(this.startButton, c);
+    }
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        int w = getWidth();
+        int h = getHeight();
+        GradientPaint gp = new GradientPaint(0, 0, Color.BLUE, 0, h, new Color(255,0,255));
+        g2d.setPaint(gp);
+        g2d.fillRect(0, 0, w, h);
     }
 }
