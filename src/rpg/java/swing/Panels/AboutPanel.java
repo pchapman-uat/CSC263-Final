@@ -5,17 +5,15 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import java.awt.GridBagLayout;
-import java.awt.RenderingHints;
 import java.awt.Color;
-import java.awt.GradientPaint;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 
 import rpg.java.Fonts;
 import rpg.java.Main;
+import rpg.java.Interfaces.iGradient;
 
-public class AboutPanel extends JPanel{
+public class AboutPanel extends JPanel implements iGradient{
     private final JLabel aboutLabel = new JLabel("About");
     private final JLabel authorLabel = new JLabel("Author: Preston Chapman");
     private final JLabel descriptionLabel = new JLabel("This is a simple RPG game simulating a battle between two characters");
@@ -44,12 +42,6 @@ public class AboutPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        int w = getWidth();
-        int h = getHeight();
-        GradientPaint gp = new GradientPaint(0, 0, Color.BLUE, 0, h, new Color(255,0,255));
-        g2d.setPaint(gp);
-        g2d.fillRect(0, 0, w, h);
+        this.makeGradient(g, Color.BLUE, new Color(255,0,255));
     }
 }
