@@ -6,8 +6,8 @@ import rpg.java.swing.MainFrame;
 
 public class Main {
     public static final boolean DEBUG = false;
-    public static final int WIDTH = 500;
-    public static final int HEIGHT = 500;
+    public static final int WIDTH = 16*75;
+    public static final int HEIGHT = 9*75;
     public static PlayerCharacter player;
     public static BaseEnemy enemy = new BaseEnemy();
     public static float damageMultiplier = 1;
