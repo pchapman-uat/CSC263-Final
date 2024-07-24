@@ -78,6 +78,8 @@ public class RegisterPanel extends JPanel implements iGradient{
     private void setFonts(){
         this.header.setFont(Fonts.HEADER);
         this.playerLabel.setFont(Fonts.NORMAL);
+        this.header.setForeground(Color.WHITE);
+        this.playerLabel.setForeground(Color.WHITE);
     }
     private void addGridY(Component component){
         this.add(component, this.c);
