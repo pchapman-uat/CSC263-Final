@@ -1,6 +1,8 @@
 package rpg.java.swing.Panels;
 
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -10,13 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import rpg.java.DefaultColors;
 import rpg.java.Difficulty;
 import rpg.java.Fonts;
 import rpg.java.Main;
+import rpg.java.Interfaces.iGradient;
 import rpg.java.characters.PlayerCharacter;
 import rpg.java.swing.Panels.SubPanels.ColorPanel;
 
-public class RegisterPanel extends JPanel{
+public class RegisterPanel extends JPanel implements iGradient{
     public final JButton submitButton = new JButton("Submit");
     public final JTextArea nameArea = new JTextArea("Player");
     public final ColorPanel colorPanel = new ColorPanel();
@@ -78,5 +82,10 @@ public class RegisterPanel extends JPanel{
     private void addGridY(Component component){
         this.add(component, this.c);
         this.c.gridy++;
+    }
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);
+        this.makeGradient(g, Color.BLUE, DefaultColors.PURPLE);
     }
 }   
