@@ -1,31 +1,32 @@
 package rpg.java.swing.Panels;
 
-import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
 
 import rpg.java.Main;
 import rpg.java.Interfaces.iGradient;
-import rpg.java.characters.BaseEnemy;
 import rpg.java.characters.BossEnemy;
 import rpg.java.swing.Panels.SubPanels.ActionPannel;
-import rpg.java.swing.Panels.SubPanels.CharacterPannel;
+import rpg.java.swing.Panels.SubPanels.AllCharactersPanel;
 
 public class GamePanel extends JPanel implements iGradient {
-    public static CharacterPannel enemy;
-    public static CharacterPannel player;
+
+    public final AllCharactersPanel characters = new AllCharactersPanel();
 
     private ActionPannel actions = new ActionPannel();
+
+    private final GridBagConstraints c = new GridBagConstraints();
     public void beginGame(){
         this.setSize(Main.WIDTH, Main.HEIGHT);
-        this.setLayout(new FlowLayout());
-        player = new CharacterPannel(Main.player);
-        Main.enemy = new BaseEnemy();
-        enemy = new CharacterPannel(Main.enemy);
-        this.add(player);
-        this.add(enemy);
-        this.add(this.actions);
+        this.characters.setPannels();
+        this.setLayout(new GridBagLayout());
+        c.gridy = 0;
+        this.add(this.characters,c);
+        c.gridy++;
+        this.add(this.actions, c);
         this.setVisible(true);
     }
     public void doTurn(){
@@ -40,18 +41,18 @@ public class GamePanel extends JPanel implements iGradient {
             if(Main.currentWave % Main.bossWaves == 0){
                 System.out.println("Boss Wave!");
                 Main.enemy = new BossEnemy();
-                enemy.resetPan(Main.enemy);
-                GamePanel.enemy.character = Main.enemy;
+                this.characters.enemy.resetPan(Main.enemy);
+                this.characters.enemy.character = Main.enemy;
             } else {
                 Main.enemy.resetRandon();
-                enemy.resetPan(Main.enemy);
+                this.characters.enemy.resetPan(Main.enemy);
             }
             this.updateGradient();
             Main.damageMultiplier += 0.1;
             
         }
-        GamePanel.enemy.updatePanel();
-        GamePanel.player.updatePanel();
+        this.characters.enemy.updatePanel();
+        this.characters.player.updatePanel();
     }
     @Override
     protected void paintComponent(Graphics g){
