@@ -11,6 +11,7 @@ import rpg.java.swing.Panels.RegisterPanel;
 public class MainFrame extends JFrame{
     private final RegisterPanel REGISTER_PANEL = new RegisterPanel();
     private final AboutPanel ABOUT_PANEL = new AboutPanel();
+    public static final GamePanel GAME_PANEL = new GamePanel();
     public MainFrame(){
         if(Main.DEBUG){
             System.out.println("Debug Mode Active");
@@ -31,7 +32,8 @@ public class MainFrame extends JFrame{
     }
     public void beginGame(){
         this.remove(this.REGISTER_PANEL);
-        this.add(new GamePanel());
+        GAME_PANEL.beginGame();
+        this.add(GAME_PANEL);
         this.forceRefresh();
 
     }

@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 
+import rpg.java.DefaultColors;
 import rpg.java.Fonts;
 import rpg.java.Main;
 import rpg.java.Interfaces.iGradient;
@@ -42,6 +43,6 @@ public class AboutPanel extends JPanel implements iGradient{
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        this.makeGradient(g, Color.BLUE, new Color(255,0,255));
+        this.makeGradient(g, Color.BLUE, DefaultColors.PURPLE);
     }
 }

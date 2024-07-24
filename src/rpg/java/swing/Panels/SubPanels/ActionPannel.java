@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import rpg.java.Main;
-import rpg.java.swing.Panels.GamePanel;
+import rpg.java.swing.MainFrame;
 
 public class ActionPannel extends JPanel {
     public final JButton attack = new JButton("Attack");
@@ -26,15 +26,15 @@ public class ActionPannel extends JPanel {
 
     private void attack(){
         Main.player.attack(Main.enemy);
-        GamePanel.doTurn();
+        MainFrame.GAME_PANEL.doTurn();
     }
     private void defend(){
         System.out.println("Defend");
         Main.player.startDefending();
-        GamePanel.doTurn();
+        MainFrame.GAME_PANEL.doTurn();
     }
     private void heal(){
         Main.player.heal(5);
-        GamePanel.doTurn();
+        MainFrame.GAME_PANEL.doTurn();
     }
 }
