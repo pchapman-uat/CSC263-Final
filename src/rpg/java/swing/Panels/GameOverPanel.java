@@ -5,15 +5,16 @@ import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import rpg.java.Main;
 import rpg.java.Interfaces.iGradient;
+import rpg.java.swing.Panels.SubPanels.GameOverButtons;
 import rpg.java.swing.Panels.SubPanels.GameOverStats;
 
 public class GameOverPanel extends JPanel implements iGradient{
     private final GameOverStats gameOverStats = new GameOverStats();
+    private final GameOverButtons gameOverButtons = new GameOverButtons();
 
     private final GridBagConstraints c = new GridBagConstraints();
     public void beginPannel(){
@@ -21,6 +22,9 @@ public class GameOverPanel extends JPanel implements iGradient{
         gameOverStats.beginPannel();
         c.gridy = 0;
         this.add(this.gameOverStats, c);
+        c.gridy++;
+        this.gameOverButtons.beginFrame();
+        this.add(this.gameOverButtons, c);
         this.repaint();
 
     }

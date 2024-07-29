@@ -50,4 +50,8 @@ public class MainFrame extends JFrame{
         this.add(this.gameOverPanel);
         this.forceRefresh();
     }
+    public static void exitGame(){
+        System.out.println("Exiting Game");
+        System.exit(0);
+    }
 }
