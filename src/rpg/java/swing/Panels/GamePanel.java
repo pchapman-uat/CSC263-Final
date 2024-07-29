@@ -17,8 +17,11 @@ public class GamePanel extends JPanel implements iGradient {
     public final AllCharactersPanel characters = new AllCharactersPanel();
 
     private ActionPannel actions = new ActionPannel();
-
+    
     private final GridBagConstraints c = new GridBagConstraints();
+    
+    public final GameOverPanel gameOverPanel = new GameOverPanel();
+
     public void beginGame(){
         this.setSize(Main.WIDTH, Main.HEIGHT);
         this.characters.setPannels();
@@ -34,7 +37,7 @@ public class GamePanel extends JPanel implements iGradient {
         Main.player.stopDefending();
         if(Main.player.health <= 0){
             System.out.println("You died");
-            System.exit(0);
+            Main.FRAME.gameOver();
         }
         if(Main.enemy.health <= 0){
             Main.currentWave+=1;

@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import rpg.java.Main;
 import rpg.java.characters.PlayerCharacter;
 import rpg.java.swing.Panels.AboutPanel;
+import rpg.java.swing.Panels.GameOverPanel;
 import rpg.java.swing.Panels.GamePanel;
 import rpg.java.swing.Panels.RegisterPanel;
 
@@ -12,6 +13,7 @@ public class MainFrame extends JFrame{
     private final RegisterPanel REGISTER_PANEL = new RegisterPanel();
     private final AboutPanel ABOUT_PANEL = new AboutPanel();
     public static final GamePanel GAME_PANEL = new GamePanel();
+    public final GameOverPanel gameOverPanel = new GameOverPanel();
     public MainFrame(){
         if(Main.DEBUG){
             System.out.println("Debug Mode Active");
@@ -41,5 +43,11 @@ public class MainFrame extends JFrame{
         this.invalidate();
         this.validate();
         this.repaint();
+    }
+    public void gameOver(){
+        this.remove(GAME_PANEL);
+        this.gameOverPanel.beginPannel();
+        this.add(this.gameOverPanel);
+        this.forceRefresh();
     }
 }
