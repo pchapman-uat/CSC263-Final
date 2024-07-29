@@ -68,4 +68,7 @@ public class GamePanel extends JPanel implements iGradient {
     private void updateGradient(){
         this.update(getGraphics());
     }
+    public void reset(){
+        this.removeAll();
+    }
 }

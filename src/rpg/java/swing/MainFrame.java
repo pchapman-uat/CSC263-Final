@@ -13,7 +13,7 @@ public class MainFrame extends JFrame{
     private final RegisterPanel REGISTER_PANEL = new RegisterPanel();
     private final AboutPanel ABOUT_PANEL = new AboutPanel();
     public static final GamePanel GAME_PANEL = new GamePanel();
-    public final GameOverPanel gameOverPanel = new GameOverPanel();
+    public final GameOverPanel GAME_OVER_PANEL = new GameOverPanel();
     public MainFrame(){
         if(Main.DEBUG){
             System.out.println("Debug Mode Active");
@@ -46,12 +46,17 @@ public class MainFrame extends JFrame{
     }
     public void gameOver(){
         this.remove(GAME_PANEL);
-        this.gameOverPanel.beginPannel();
-        this.add(this.gameOverPanel);
+        this.GAME_OVER_PANEL.beginPannel();
+        this.add(this.GAME_OVER_PANEL);
         this.forceRefresh();
     }
     public static void exitGame(){
         System.out.println("Exiting Game");
         System.exit(0);
+    }
+    public void beginNewPlayer(){  
+        this.add(this.REGISTER_PANEL);
+        this.remove(GAME_OVER_PANEL);
+        this.repaint();
     }
 }

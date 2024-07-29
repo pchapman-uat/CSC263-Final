@@ -14,10 +14,12 @@ public class AllCharactersPanel extends JPanel{
         this.setLayout(new FlowLayout());
     }
     public void setPannels(){
+        this.removeAll();
         this.player = new CharacterPannel(Main.player);
         Main.enemy = new BaseEnemy();
         this.enemy = new CharacterPannel(Main.enemy);
         this.add(this.player);
         this.add(this.enemy);
+        this.repaint();
     }
 }

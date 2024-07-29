@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import rpg.java.Main;
 import rpg.java.swing.MainFrame;
 
 public class GameOverButtons extends JPanel{
@@ -21,6 +22,7 @@ public class GameOverButtons extends JPanel{
     }
 
     private void initButtons(){
-        this.RESTART.addActionListener(e -> MainFrame.exitGame());
+        this.EXIT.addActionListener(e -> MainFrame.exitGame());
+        this.NEW_PLAYER.addActionListener(e -> Main.resetAll());
     }
 }
