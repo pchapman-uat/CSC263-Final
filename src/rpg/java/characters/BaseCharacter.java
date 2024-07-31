@@ -70,4 +70,7 @@ public class BaseCharacter {
         this.health += ammount;
         if(this.health > this.maxHealth) this.health = this.maxHealth;
     }
+    public float getHealthPercent(){
+        return this.health/this.maxHealth;
+    }
 }

@@ -6,7 +6,9 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 
+import rpg.java.DefaultColors;
 import rpg.java.characters.BaseCharacter;
 import rpg.java.characters.BaseEnemy;
 
@@ -15,10 +17,18 @@ public class CharacterPannel extends JPanel {
     private final JLabel health = new JLabel();
     private final JLabel name = new JLabel();
     private final GridBagConstraints c = new GridBagConstraints();
+    private final JProgressBar healthBar = new JProgressBar();
+
+    private final Color fullhealth = Color.GREEN;
+    private final Color noHealth = Color.RED;
     public CharacterPannel(BaseCharacter _character){
         character = _character;
         this.setLayout(new GridBagLayout());
         this.c.gridy = 0;
+        this.updateHealth();
+        this.healthBar.setForeground(this.healthBarColor());
+        this.add(this.healthBar, c);
+        this.c.gridy++;
         this.add(this.health, c);
         this.c.gridy+=1;
         this.add(this.name,c);
@@ -38,10 +48,20 @@ public class CharacterPannel extends JPanel {
         }
         this.name.setForeground(textColor);
         this.health.setForeground(textColor);
+        this.updateHealth();
         this.repaint();
     }
     public void resetPan(BaseEnemy _character){
         this.character.resetFrom(_character);
         this.updatePanel();
+    }
+    private void updateHealth(){
+        this.healthBar.setMaximum((int) this.character.maxHealth);
+        this.healthBar.setValue((int) this.character.health);
+        this.healthBar.setForeground(this.healthBarColor());
+    }
+
+    private Color healthBarColor(){
+        return DefaultColors.TwoColorRange(this.noHealth, this.fullhealth, this.character.getHealthPercent());
     }
 }

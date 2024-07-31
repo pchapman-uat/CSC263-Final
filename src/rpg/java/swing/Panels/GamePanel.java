@@ -30,6 +30,7 @@ public class GamePanel extends JPanel implements iGradient {
         this.add(this.characters,c);
         c.gridy++;
         this.add(this.actions, c);
+        c.gridy++;
         this.setVisible(true);
     }
     public void doTurn(){
