@@ -22,4 +22,18 @@ public class DefaultColors {
         return new Color(newRed, newGreen, newBlue);
 
     }
+    public static Color ThreeColorRange(Color lowColor, Color midColor, Color highColor, float percent){
+        if(percent == 1){
+            return highColor;
+        } 
+        else if(percent == 0){
+            return lowColor;
+        } else {
+            if(percent >= 0.5){
+                return TwoColorRange(midColor, highColor, (float) (percent - 0.5));
+            } else {
+                return TwoColorRange(lowColor, midColor, (float) (percent + 0.5));
+            }
+        }
+    }
 }

@@ -20,6 +20,7 @@ public class CharacterPannel extends JPanel {
     private final JProgressBar healthBar = new JProgressBar();
 
     private final Color fullhealth = Color.GREEN;
+    private final Color midHealth = Color.YELLOW;
     private final Color noHealth = Color.RED;
     public CharacterPannel(BaseCharacter _character){
         character = _character;
@@ -62,6 +63,6 @@ public class CharacterPannel extends JPanel {
     }
 
     private Color healthBarColor(){
-        return DefaultColors.TwoColorRange(this.noHealth, this.fullhealth, this.character.getHealthPercent());
+        return DefaultColors.ThreeColorRange(this.noHealth, this.midHealth, this.fullhealth, this.character.getHealthPercent());
     }
 }
