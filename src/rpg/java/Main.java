@@ -15,6 +15,7 @@ public class Main {
     public static int currentWave = 0;
     public static final int bossWaves = 10;
     public static Difficulty difficulty;
+    public static final HighScores highScores = new HighScores();
     public static void main(String[] args){
 
     }
