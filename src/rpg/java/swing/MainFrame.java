@@ -45,6 +45,7 @@ public class MainFrame extends JFrame{
         this.repaint();
     }
     public void gameOver(){
+        Main.highScores.addUser(Main.player);
         this.remove(GAME_PANEL);
         this.GAME_OVER_PANEL.beginPannel();
         this.add(this.GAME_OVER_PANEL);

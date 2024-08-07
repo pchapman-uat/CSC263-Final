@@ -1,5 +1,6 @@
 package rpg.java;
 
+import rpg.java.characters.PlayerCharacter;
 
 public class HighScores {
     private User[] allUsers = new User[3];
@@ -7,10 +8,21 @@ public class HighScores {
     public void addUser(User newUser){
         int i = 0;
         for (User _user : allUsers) {
-            if(newUser.score > _user.score){
+            if(_user == null) {
                 allUsers[i] = newUser;
+                return;
             }
+            if(newUser.score > _user.score){
+                User tmp = allUsers[i];
+                allUsers[i] = newUser;
+                addUser(tmp);
+                break;
+            }
+            i++;
         }
+    }
+    public void addUser(PlayerCharacter player){
+        this.addUser(new User(player));
     }
 
     public int getLenght(){
@@ -18,6 +30,7 @@ public class HighScores {
         return allUsers.length;
     }
     public String toString(){
+        System.out.println(this.allUsers);
         String result = "";
         for(int i = 0; i< this.getLenght(); i++){
             System.out.println(this.allUsers[i]);
@@ -42,5 +55,9 @@ class User {
         this.name = name;
         this.id = id;
         this.score = score;
+    }
+    User(PlayerCharacter player){
+        this.name = player.name;
+        this.score = Main.currentWave;
     }
 }
