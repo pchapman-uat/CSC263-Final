@@ -19,5 +19,6 @@ public class User {
     public User(PlayerCharacter player){
         this.name = player.name;
         this.score = Main.currentWave;
+        this.date = new Date(System.currentTimeMillis());
     }
 }

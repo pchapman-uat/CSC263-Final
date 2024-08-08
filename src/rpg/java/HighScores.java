@@ -3,7 +3,7 @@ package rpg.java;
 import rpg.java.characters.PlayerCharacter;
 
 public class HighScores {
-    public static final int MAX_USERS = 3;
+    public static final int MAX_USERS = 5;
     private User[] allUsers;
 
     public HighScores(){
