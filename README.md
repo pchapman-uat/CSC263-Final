@@ -1,13 +1,12 @@
 # CSC263 Final
 
+<!-- TODO: Add information about SQLite3 -->
 
 ## Demo
 ### 7/8/24 (Beta-V1)
 ![](./demo/7.18.24/image1.webp)
 ![](./demo/7.18.24/image2.webp)
 ![](./demo/7.18.24/image3.webp)
-## To Do:
-[ ] JSON Settings
 
 ## Tasks
 [X] Opening screen with a description of the application and instructions\
@@ -20,6 +19,6 @@
 [ ] File input and output processing\
 [ ] Multi-Threading\
 [ ] Iterators\
-[ ] Recursion \
+[X] Recursion \
 [X] Exception handling\
 [X] Generic programming
