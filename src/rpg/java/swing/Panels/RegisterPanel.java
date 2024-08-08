@@ -85,6 +85,13 @@ public class RegisterPanel extends JPanel implements iGradient{
         this.add(component, this.c);
         this.c.gridy++;
     }
+
+    public RegisterPanel reset(){
+        this.nameArea.setText("Player");
+        this.colorPanel.reset();
+        this.difficulty.setSelectedIndex(1);
+        return this;
+    }
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);

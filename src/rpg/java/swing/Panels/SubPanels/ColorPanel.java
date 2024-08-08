@@ -15,4 +15,7 @@ public class ColorPanel extends JPanel {
     public Color getColor(){
         return this.colorChooser.getColor();
     }
+    public void reset(){
+        this.colorChooser.setColor(Color.WHITE);
+    }
 }

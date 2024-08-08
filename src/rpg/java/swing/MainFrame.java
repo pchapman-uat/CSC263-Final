@@ -58,6 +58,7 @@ public class MainFrame extends JFrame{
         System.exit(0);
     }
     public void beginNewPlayer(){  
+        this.REGISTER_PANEL.reset();
         this.add(this.REGISTER_PANEL);
         this.remove(GAME_OVER_PANEL);
         this.repaint();
