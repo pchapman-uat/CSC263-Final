@@ -30,8 +30,10 @@ public class SQLManager {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 int score = resultSet.getInt("score");
+                String dateStr = resultSet.getString("date");
+                Date date = Date.valueOf(dateStr);
 
-                User user = new User(name, id, score);
+                User user = new User(name, id, score, date);
                 Main.highScores.addUser(user);
             }
         }
