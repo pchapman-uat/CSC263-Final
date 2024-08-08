@@ -3,13 +3,21 @@ package rpg.java;
 import rpg.java.characters.PlayerCharacter;
 
 public class HighScores {
-    private User[] allUsers = new User[3];
+    public static final int MAX_USERS = 3;
+    private User[] allUsers;
+
+    public HighScores(){
+        allUsers = new User[MAX_USERS];
+    }
     
     public void addUser(User newUser){
         int i = 0;
         for (User _user : allUsers) {
             if(_user == null) {
                 allUsers[i] = newUser;
+                return;
+            }
+            if(_user.id == newUser.id){
                 return;
             }
             if(newUser.score > _user.score){

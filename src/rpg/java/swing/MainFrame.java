@@ -3,6 +3,7 @@ package rpg.java.swing;
 import javax.swing.JFrame;
 
 import rpg.java.Main;
+import rpg.java.User;
 import rpg.java.characters.PlayerCharacter;
 import rpg.java.swing.Panels.AboutPanel;
 import rpg.java.swing.Panels.GameOverPanel;
@@ -45,7 +46,8 @@ public class MainFrame extends JFrame{
         this.repaint();
     }
     public void gameOver(){
-        Main.highScores.addUser(Main.player);
+        Main.sqlManager.getUsers();
+        Main.sqlManager.addUser(new User(Main.player));
         this.remove(GAME_PANEL);
         this.GAME_OVER_PANEL.beginPannel();
         this.add(this.GAME_OVER_PANEL);
