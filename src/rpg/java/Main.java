@@ -1,5 +1,6 @@
 package rpg.java;
 
+
 import rpg.java.characters.BaseEnemy;
 import rpg.java.characters.PlayerCharacter;
 import rpg.java.swing.MainFrame;
@@ -16,10 +17,10 @@ public class Main {
     public static final int bossWaves = 10;
     public static Difficulty difficulty;
     public static final HighScores highScores = new HighScores();
+    public final static SQLManager sqlManager = new SQLManager();
     public static void main(String[] args){
-
+        
     }
-
     public static void resetAll(){
         player = null;
         enemy = new BaseEnemy();

@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "src/rpg/java/lib/sqlite-jdbc-3.45.2.0.jar",
+        "src/rpg/java/lib/slf4j-api-1.7.36.jar"
+    ]
+}
