@@ -16,6 +16,13 @@
             "request": "launch",
             "mainClass": "rpg.java.Main",
             "projectName": "CSC263-Final_ddb60c94"
-        } 
+        },
+        {
+            "type": "java",
+            "name": "Main2",
+            "request": "launch",
+            "mainClass": "rpg.java.Main",
+            "projectName": "CSC263-Final_73146301"
+        },
     ]
 }
