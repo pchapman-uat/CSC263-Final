@@ -58,6 +58,17 @@ public class GamePanel extends JPanel implements iGradient {
         this.characters.enemy.updatePanel();
         this.characters.player.updatePanel();
     }
+    public float calcDmgMult(){
+        float total = Main.damageMultiplier;
+        switch (Main.difficulty) {
+            case EASY:
+                return total -= 0.5;
+            case HARD:
+                return total += 0.5;
+            default:
+                return total;
+        }
+    }
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import rpg.java.Main;
+import rpg.java.swing.MainFrame;
 
 public class BaseEnemy extends BaseCharacter{
     public BaseEnemy(String name, float health, float maxHealth, int damage){
@@ -22,8 +22,7 @@ public class BaseEnemy extends BaseCharacter{
     }
     @Override
     public void attack(BaseCharacter enemy){
-        enemy.reciveDamage(this.damage * Main.damageMultiplier);
-        System.out.println(this.damage * Main.damageMultiplier);
+        enemy.reciveDamage(this.damage * MainFrame.GAME_PANEL.calcDmgMult());
     }
 
     public static final ArrayList<BaseEnemy> ENEMIES = new ArrayList<>(Arrays.asList(
