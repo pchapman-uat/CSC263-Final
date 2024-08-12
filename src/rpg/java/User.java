@@ -9,16 +9,19 @@ public class User {
     public int id;
     public int score;
     public Date date;
+    public Difficulty difficulty;
 
-    public User(String name, int id, int score, Date date){
+    public User(String name, int id, int score, Date date, String difficulty){
         this.name = name;
         this.id = id;
         this.score = score;
         this.date = date;
+        this.difficulty = Difficulty.valueOf(difficulty.toUpperCase());
     }
     public User(PlayerCharacter player){
         this.name = player.name;
         this.score = Main.currentWave;
         this.date = new Date(System.currentTimeMillis());
+        this.difficulty = Main.difficulty;
     }
 }

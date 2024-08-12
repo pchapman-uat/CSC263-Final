@@ -48,6 +48,7 @@ public class MainFrame extends JFrame{
     public void gameOver(){
         Main.sqlManager.getUsers();
         Main.sqlManager.addUser(new User(Main.player));
+        Main.highScores.addUser(Main.player);
         this.remove(GAME_PANEL);
         this.GAME_OVER_PANEL.beginPannel();
         this.add(this.GAME_OVER_PANEL);
