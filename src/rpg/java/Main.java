@@ -29,4 +29,10 @@ public class Main {
         difficulty = null;
         FRAME.beginNewPlayer();
     }
+    public static void showAllScores(){
+        highScores.reset();
+        sqlManager.getUsers();
+        FRAME.GAME_OVER_PANEL.refresh();
+        
+    }
 }

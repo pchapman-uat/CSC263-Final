@@ -29,6 +29,10 @@ public class GameOverStats extends JPanel{
         this.highScoresLabel.setText(Main.highScores.toString());
         this.add(this.highScoresLabel, c);
     }
+    public void resetLeaderboard(){
+        this.highScoresLabel.setText(Main.highScores.toString());
+        this.repaint();
+    }
     private String getScoreText(int score){
         return "Score: "+score;
     }

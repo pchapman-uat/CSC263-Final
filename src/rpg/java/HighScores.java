@@ -29,6 +29,9 @@ public class HighScores {
             i++;
         }
     }
+    public void reset(){
+        this.allUsers = new User[MAX_USERS];
+    }
     public void addUser(PlayerCharacter player){
         this.addUser(new User(player));
     }

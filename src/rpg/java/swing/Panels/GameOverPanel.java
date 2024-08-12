@@ -13,7 +13,7 @@ import rpg.java.swing.Panels.SubPanels.GameOverButtons;
 import rpg.java.swing.Panels.SubPanels.GameOverStats;
 
 public class GameOverPanel extends JPanel implements iGradient{
-    private final GameOverStats gameOverStats = new GameOverStats();
+    public final GameOverStats gameOverStats = new GameOverStats();
     private final GameOverButtons gameOverButtons = new GameOverButtons();
 
     private final GridBagConstraints c = new GridBagConstraints();
@@ -27,6 +27,9 @@ public class GameOverPanel extends JPanel implements iGradient{
         this.add(this.gameOverButtons, c);
         this.repaint();
 
+    }
+    public void refresh(){
+        this.gameOverStats.resetLeaderboard();
     }
 
     @Override
