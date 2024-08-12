@@ -19,7 +19,7 @@ public class Main {
     public static final HighScores highScores = new HighScores();
     public final static SQLManager sqlManager = new SQLManager();
     public static void main(String[] args){
-        sqlManager.getUsers();
+
     }
     public static void resetAll(){
         player = null;

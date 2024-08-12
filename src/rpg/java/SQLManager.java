@@ -28,6 +28,25 @@ public class SQLManager {
         try {
             String select = "SELECT * FROM users ORDER BY score DESC LIMIT " + HighScores.MAX_USERS;           
             ResultSet resultSet = statement.executeQuery(select);
+            addUsers(resultSet);
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+        }
+    }
+
+    public void getUsers(Difficulty diff){
+        try {
+            String select = "SELECT * FROM users WHERE difficulty = '" + diff.toString() + "' ORDER BY score DESC LIMIT "+HighScores.MAX_USERS;
+            ResultSet resultSet = statement.executeQuery(select);
+            addUsers(resultSet);
+        } catch (SQLException e){
+            System.err.println(e);
+        }
+    }
+    private void addUsers(ResultSet resultSet){
+        System.out.println("Adding Users");
+        try {
             while (resultSet.next()){
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
@@ -38,8 +57,7 @@ public class SQLManager {
                 User user = new User(name, id, score, date, diffStr);
                 Main.highScores.addUser(user);
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.err.println(e);
         }
     }
