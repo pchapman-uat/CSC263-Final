@@ -10,11 +10,13 @@ import javax.swing.JPanel;
 import rpg.java.Main;
 import rpg.java.Interfaces.iGradient;
 import rpg.java.swing.Panels.SubPanels.GameOverButtons;
+import rpg.java.swing.Panels.SubPanels.GameOverLookup;
 import rpg.java.swing.Panels.SubPanels.GameOverStats;
 
 public class GameOverPanel extends JPanel implements iGradient{
     public final GameOverStats gameOverStats = new GameOverStats();
     private final GameOverButtons gameOverButtons = new GameOverButtons();
+    private final GameOverLookup gameOverLookup = new GameOverLookup();
 
     private final GridBagConstraints c = new GridBagConstraints();
     public void beginPannel(){
@@ -25,6 +27,9 @@ public class GameOverPanel extends JPanel implements iGradient{
         c.gridy++;
         this.gameOverButtons.beginFrame();
         this.add(this.gameOverButtons, c);
+        c.gridy++;
+        this.gameOverLookup.beginPannel();
+        this.add(this.gameOverLookup, c);
         this.repaint();
 
     }

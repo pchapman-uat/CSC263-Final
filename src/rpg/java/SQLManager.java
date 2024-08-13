@@ -72,4 +72,40 @@ public class SQLManager {
             System.err.println(e);
         }
     }
+    public int getUserPlacement(int ID){
+        try {
+            String select = "SELECT id, score FROM users ORDER by score DESC";
+            ResultSet resultSet = statement.executeQuery(select);
+            int placement = 1;
+            int prevScore = 0;
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                if(id == ID){
+                    return placement;
+                }
+                if(resultSet.getInt("score") < prevScore) placement++;
+            }
+            return -1;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return -1;
+        }
+    }
+    public User getUser(int id){
+        try {
+            String select = "SELECT * FROM users WHERE id = " + id;
+            ResultSet resultSet = statement.executeQuery(select);
+            resultSet.next();
+            String name = resultSet.getString("name");
+            int score = resultSet.getInt("score");
+            String dateStr = resultSet.getString("date");
+            Date date = Date.valueOf(dateStr);
+            String diffStr = resultSet.getString("difficulty");
+            User user = new User(name, id, score, date, diffStr);
+            return user;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return null;
+        }
+    }
 }
