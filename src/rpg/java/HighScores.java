@@ -53,7 +53,7 @@ public class HighScores implements iFormat {
     private String getPlacementString(User user, int index){
         String result = "";
         if(user == null) result = (index+1)+". N/A";
-        else result = ordinal(index+1)+". "+user.name + " - " + user.score + " | "+ user.date.toString() + " | "+ user.difficulty.toString();
+        else result = ordinal(index+1)+". "+user.name + " - " + user.score + " | "+ user.date.toString() + " | "+ difficultyStars(user.difficulty);
         if(index < this.getLenght()-1) result+= System.getProperty("line.separator");
         return result;
     }

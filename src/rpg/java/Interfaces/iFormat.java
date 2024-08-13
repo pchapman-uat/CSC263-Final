@@ -1,5 +1,7 @@
 package rpg.java.Interfaces;
 
+import rpg.java.Difficulty;
+
 public interface iFormat {
     public default String ordinal(int i) {
         String[] suffixes = new String[] { "th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th" };
@@ -11,6 +13,18 @@ public interface iFormat {
         default:
             return i + suffixes[i % 10];
     
+        }
+    }
+    public default String difficultyStars(Difficulty diff){
+        switch(diff){
+            case EASY:
+                return "★";
+            case NORMAL:
+                return "★★";
+            case HARD:
+                return "★★★";
+            default:
+                return "";
         }
     }
 }
