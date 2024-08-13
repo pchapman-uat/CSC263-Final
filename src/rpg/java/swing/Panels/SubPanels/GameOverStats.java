@@ -29,7 +29,7 @@ public class GameOverStats extends JPanel implements iFormat{
         this.placementLabel.setText(this.getPlacementString(this.getPlacement()));
         this.add(this.placementLabel, c);
         c.gridy++;
-
+        this.highScoresLabel.setEditable(false);
         this.highScoresLabel.setColumns(Main.highScores.getLenght());
         this.highScoresLabel.setText(Main.highScores.toString());
         this.add(this.highScoresLabel, c);
