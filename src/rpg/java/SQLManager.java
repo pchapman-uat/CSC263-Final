@@ -3,6 +3,7 @@ package rpg.java;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -61,17 +62,31 @@ public class SQLManager {
             System.err.println(e);
         }
     }
-    public void addUser(User user){
+    public int addUser(User user) {
         Main.highScores.addUser(user);
         Date date = new Date(System.currentTimeMillis());
         try {
-            String insert = "INSERT INTO users (name, date, score, difficulty) VALUES ('" + user.name + "', '" +  date.toString() + "', '" + user.score + "','"+user.difficulty.toString() +"')";
-            System.out.println(insert);
-            statement.execute(insert);
+            String insert = "INSERT INTO users (name, date, score, difficulty) VALUES (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, user.name);
+            preparedStatement.setString(2, date.toString());
+            preparedStatement.setInt(3, user.score);
+            preparedStatement.setString(4, user.difficulty.toString());
+
+            preparedStatement.executeUpdate();
+            
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                return generatedKeys.getInt(1);  // Return the generated ID
+            } else {
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
         } catch (SQLException e) {
             System.err.println(e);
+            return -1;
         }
     }
+
     public int getUserPlacement(int ID){
         try {
             String select = "SELECT id, score FROM users ORDER by score DESC";
@@ -80,10 +95,12 @@ public class SQLManager {
             int prevScore = 0;
             while (resultSet.next()){
                 int id = resultSet.getInt("id");
+                int newScore = resultSet.getInt("score");
+                if(newScore < prevScore) placement++;
                 if(id == ID){
                     return placement;
                 }
-                if(resultSet.getInt("score") < prevScore) placement++;
+                prevScore = newScore;
             }
             return -1;
         } catch (SQLException e) {
