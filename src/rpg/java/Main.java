@@ -39,4 +39,15 @@ public class Main {
         sqlManager.getUsers(difficulty);
         FRAME.GAME_OVER_PANEL.refresh();
     }
+    public static void replay(){
+        player.health = player.maxHealth;
+        Main.enemy = new BaseEnemy();
+        Main.currentWave = 0;
+        Main.damageMultiplier = 1;
+        Main.player.id = null;
+        MainFrame.GAME_PANEL.reset();
+        FRAME.remove(FRAME.GAME_OVER_PANEL);
+        FRAME.beginGame();
+        FRAME.repaint();
+    }
 }

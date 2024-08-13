@@ -11,21 +11,22 @@ import rpg.java.Main;
 import rpg.java.swing.MainFrame;
 
 public class GameOverButtons extends JPanel{
-    private final JButton RESTART = new JButton("Restart");
+    private final JButton REPLAY = new JButton("Replay");
     private final JButton NEW_PLAYER = new JButton("New Player");
     private final JButton EXIT = new JButton("Exit");
     private final JComboBox<String> DIFFICULTY_COMBO = new JComboBox<String>();  
-
-    public void beginFrame(){
-        this.setLayout(new FlowLayout());
-        this.initButtons();
-        this.add(RESTART);
-        this.add(NEW_PLAYER);
-        this.add(EXIT);
+    public GameOverButtons(){
         DIFFICULTY_COMBO.addItem("Easy");
         DIFFICULTY_COMBO.addItem("Normal");
         DIFFICULTY_COMBO.addItem("Hard");
         DIFFICULTY_COMBO.addItem("All");
+    }
+    public void beginFrame(){
+        this.setLayout(new FlowLayout());
+        this.initButtons();
+        this.add(REPLAY);
+        this.add(NEW_PLAYER);
+        this.add(EXIT);
         this.add(DIFFICULTY_COMBO);
         switch (Main.difficulty) {
             case EASY:
@@ -53,5 +54,6 @@ public class GameOverButtons extends JPanel{
             Main.difficulty = Difficulty.valueOf(DIFFICULTY_COMBO.getSelectedItem().toString().toUpperCase());
             Main.showFilteredScores(Main.difficulty);
         });
+        this.REPLAY.addActionListener(e -> Main.replay());
     }
 }
