@@ -33,6 +33,10 @@ public class Main {
         highScores.reset();
         sqlManager.getUsers();
         FRAME.GAME_OVER_PANEL.refresh();
-        
+    }
+    public static void showFilteredScores(Difficulty difficulty){
+        highScores.reset();
+        sqlManager.getUsers(difficulty);
+        FRAME.GAME_OVER_PANEL.refresh();
     }
 }
