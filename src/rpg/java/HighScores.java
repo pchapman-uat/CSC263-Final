@@ -1,8 +1,9 @@
 package rpg.java;
 
+import rpg.java.Interfaces.iFormat;
 import rpg.java.characters.PlayerCharacter;
 
-public class HighScores {
+public class HighScores implements iFormat {
     public static final int MAX_USERS = 5;
     private User[] allUsers;
 
@@ -52,7 +53,7 @@ public class HighScores {
     private String getPlacementString(User user, int index){
         String result = "";
         if(user == null) result = (index+1)+". N/A";
-        else result = (index+1)+". "+user.name + " - " + user.score + " | "+ user.date.toString() + " | "+ user.difficulty.toString();
+        else result = ordinal(index+1)+". "+user.name + " - " + user.score + " | "+ user.date.toString() + " | "+ user.difficulty.toString();
         if(index < this.getLenght()-1) result+= System.getProperty("line.separator");
         return result;
     }

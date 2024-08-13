@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import rpg.java.Main;
+import rpg.java.Interfaces.iFormat;
 
-public class GameOverStats extends JPanel{
+public class GameOverStats extends JPanel implements iFormat{
     private JLabel nameLabel = new JLabel();
     private JLabel wavesLabel = new JLabel();
     private JLabel placementLabel = new JLabel();
@@ -44,6 +45,6 @@ public class GameOverStats extends JPanel{
         return Main.sqlManager.getUserPlacement(Main.player.id);
     }
     private String getPlacementString(int placement){
-        return "Placement: "+placement;
+        return "Placement: "+ ordinal(placement);
     }
 }
