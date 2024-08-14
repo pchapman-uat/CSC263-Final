@@ -1,11 +1,13 @@
 package rpg.java.swing.Panels;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
 
+import rpg.java.DefaultColors;
 import rpg.java.Main;
 import rpg.java.Interfaces.iGradient;
 import rpg.java.characters.BossEnemy;
@@ -22,6 +24,8 @@ public class GamePanel extends JPanel implements iGradient {
     
     public final GameOverPanel gameOverPanel = new GameOverPanel();
 
+    private float preveHealAmt;
+
     public void beginGame(){
         this.setSize(Main.WIDTH, Main.HEIGHT);
         this.characters.setPannels();
@@ -36,6 +40,7 @@ public class GamePanel extends JPanel implements iGradient {
     public void doTurn(){
         Main.enemy.attack(Main.player);
         Main.player.stopDefending();
+        this.setHealBackground();
         if(Main.player.health <= 0){
             System.out.println("You died");
             Main.FRAME.gameOver();
@@ -57,6 +62,20 @@ public class GamePanel extends JPanel implements iGradient {
         }
         this.characters.enemy.updatePanel();
         this.characters.player.updatePanel();
+    }
+    private void setHealBackground(){
+        float remaining = (float) Main.player.getFullHeals();
+        if(remaining == preveHealAmt) return;
+        Color color;
+        if(remaining <= 0) {
+            color = this.actions.getDefaultHealColor();
+        } else {
+            preveHealAmt = remaining;
+            float max = (float) Main.player.getMaxHeals();
+            float percent =  remaining / max;
+            color = DefaultColors.ThreeColorRange(Color.RED, Color.YELLOW, Color.GREEN, percent);
+        }
+        this.actions.setHealBackground(color);
     }
     public float calcDmgMult(){
         float total = Main.damageMultiplier;
