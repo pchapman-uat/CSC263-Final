@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import rpg.java.DefaultColors;
 import rpg.java.Main;
 import rpg.java.Interfaces.iGradient;
+import rpg.java.characters.BaseEnemy;
 import rpg.java.characters.BossEnemy;
 import rpg.java.swing.Panels.SubPanels.ActionPannel;
 import rpg.java.swing.Panels.SubPanels.AllCharactersPanel;
@@ -53,7 +54,12 @@ public class GamePanel extends JPanel implements iGradient {
                 this.characters.enemy.resetPan(Main.enemy);
                 this.characters.enemy.character = Main.enemy;
             } else {
-                Main.enemy.resetRandon();
+                if((Main.currentWave - 1) % Main.bossWaves == 0){
+                    Main.enemy = new BaseEnemy();
+                } else {
+                    Main.enemy.resetRandon();
+                }
+
                 this.characters.enemy.resetPan(Main.enemy);
             }
             this.updateGradient();
