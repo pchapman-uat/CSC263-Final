@@ -54,8 +54,10 @@ public class GamePanel extends JPanel implements iGradient {
                 this.characters.enemy.resetPan(Main.enemy);
                 this.characters.enemy.character = Main.enemy;
             } else {
-                if((Main.currentWave - 1) % Main.bossWaves == 0){
+                if((Main.currentWave - 1) % Main.bossWaves == 0 && Main.currentWave != 1){
                     Main.enemy = new BaseEnemy();
+                    this.characters.enemy.resetPan(Main.enemy);
+                    this.characters.enemy.character = Main.enemy;
                 } else {
                     Main.enemy.resetRandon();
                 }
