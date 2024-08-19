@@ -14,11 +14,11 @@
 [X] At least 4 classes in total\
 [X] Inheritance (minimum 2 derived classes)\
 [X] Polymorphism (Overloading and overriding)\
-[ ] Encapsulation\
+[X] Encapsulation\
 [X] Abstraction\
-[ ] File input and output processing\
+[X] File input and output processing\
 [ ] Multi-Threading\
-[ ] Iterators\
+[X] Iterators\
 [X] Recursion \
 [X] Exception handling\
 [X] Generic programming
