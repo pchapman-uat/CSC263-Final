@@ -21,9 +21,10 @@ This project uses SQLite 3 to store the high score data. The database is stored 
 #### Database
 ![](./demo/8.19.24/data.webp)
 
-### 7/8/24 (Beta-V1)
+### 7/8/24 (Beta-V1.1)
 <details>
-
+  
+The source code can be found [here](https://github.com/pchapman-uat/CSC263-Final/releases/tag/Beta-V1.1)
 ![](./demo/7.18.24/image1.webp)
 ![](./demo/7.18.24/image2.webp)
 ![](./demo/7.18.24/image3.webp)
