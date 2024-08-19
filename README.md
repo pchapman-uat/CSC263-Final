@@ -7,10 +7,27 @@ This project is a standared Role Playing Game (RPG) simulator. The user will be 
 This project uses SQLite 3 to store the high score data. The database is stored in the project folder. In order to connect to the local database the SQLite 3 driver `sqlite-jdbc-3.45.2.0` and the framework `slf4j-api-1.7.36`. Information on these can be found on the SQlite JDBC Driver [GitHub](https://github.com/xerial/sqlite-jdbc).
 
 ## Demo
+
+### 8/19/24 (Release-V1)
+#### Register
+![](./demo/8.19.24/register.webp)
+![](./demo/8.19.24/register2.webp)
+#### Game
+![](./demo/8.19.24/game1.webp)
+![](./demo/8.19.24/game2.webp)
+![](./demo/8.19.24/game3.webp)
+#### Results
+![](./demo/8.19.24/results.webp)
+#### Database
+![](./demo/8.19.24/data.webp)
+
 ### 7/8/24 (Beta-V1)
+<details>
+
 ![](./demo/7.18.24/image1.webp)
 ![](./demo/7.18.24/image2.webp)
 ![](./demo/7.18.24/image3.webp)
+</details>
 
 ## Tasks
 - [X] Opening screen with a description of the application and instructions
