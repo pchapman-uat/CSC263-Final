@@ -1,6 +1,7 @@
-# CSC263 Final
+# CSC263 Final | RPG Simulator
 
 ## Description
+This project is a standared Role Playing Game (RPG) simulator. The user will be able to chose their name, color and difficulty, then they will fight a variety of enemies. The more waves you complete the higher your score will be. All scores are added to a local database, allowing you to see your ranking.
 
 ## SQLite 3
 This project uses SQLite 3 to store the high score data. The database is stored in the project folder. In order to connect to the local database the SQLite 3 driver `sqlite-jdbc-3.45.2.0` and the framework `slf4j-api-1.7.36`. Information on these can be found on the SQlite JDBC Driver [GitHub](https://github.com/xerial/sqlite-jdbc).
