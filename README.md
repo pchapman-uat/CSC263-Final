@@ -1,6 +1,7 @@
 # CSC263 Final | RPG Simulator
 
 [![Static Badge](https://img.shields.io/badge/Objective-ACS.3-purple)](https://pchapman-uat.github.io/Boards/ACS/#objective3)
+[![Static Badge](https://img.shields.io/badge/Objective-ACS.5-purple)](https://pchapman-uat.github.io/Boards/ACS/#objective5)
 
 ## Description
 This project is a standard Role Playing Game (RPG) simulator. The user will be able to choose their name, color, and difficulty, then they will fight a variety of enemies. The more waves you complete the higher your score will be. All scores are added to a local database, allowing you to see your ranking.
